@@ -1,0 +1,97 @@
+/*------- body setting------- */
+body{
+    color: black;
+    background-color: rgb(221, 182, 135);
+}
+
+/*------- title setting------- */
+header{
+    text-align: center;  
+}
+
+header h1{
+    background: rgb(184, 180, 180);
+    padding: 21.44px 0; 
+    margin: 0;
+}
+
+/*------- main quiz section--------- */
+form{
+    margin:20px;
+}
+
+.formBox{
+    width: 40%;
+    margin: auto;
+    border-radius: 10px;
+    background-color: rgb(181, 206, 207);
+
+}
+
+
+img{
+    width: 400px;
+    height:300px;
+}
+
+/* ---------headding setting---------- */
+label{
+    word-wrap: break-word;
+    display:block;
+    padding:10px;
+}
+
+input{
+    display:block;
+    height: 30px;
+    margin-left:10px;
+    width: 80%;
+}
+
+::-webkit-input-placeholder {
+    white-space:pre-line;  
+    position:relative;
+    top:-7px;
+  }
+
+button{
+    margin:10px;
+}
+
+p{
+    padding: 10px;
+    flex-wrap: wrap;
+}
+
+h3{
+    margin-top: 0;
+}
+
+/* ---------all hidden classes setting-------- */
+.hidden{
+    display: none;
+}
+
+/*-------- color setting----------- */
+.blue{
+    
+    color: rgb(26, 127, 221);
+}
+.red{
+    color:red;
+}
+
+/* ------------desktop -----------*/
+@media only screen and (min-width: 430px) {
+    /* -------position setting ------*/
+    input{
+        width: 140px;
+        height: initial;
+    }
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        
+        white-space:initial;  
+        position:initial;
+        top:initial;
+      }
+}
