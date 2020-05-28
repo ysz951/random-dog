@@ -1,0 +1,22 @@
+/* -----mobile first --------*/
+.group{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.item{
+    width: 40%;
+    /* width: 400px;
+    height: 300px; */
+}
+
+/*-------- desktop setting ---------*/
+@media only screen and (min-width: 720px) {
+    .group{
+        flex-direction: row;    
+        align-items: center;
+        justify-content: center;
+    }
+}
+

@@ -1,0 +1,61 @@
+'use strict';
+
+
+function getDogImage(newItemName) {
+  let fetchAddress;
+  if (!newItemName){
+    fetchAddress = 'https://dog.ceo/api/breeds/image/random/3';
+  }
+  else{
+    fetchAddress = `https://dog.ceo/api/breeds/image/random/${newItemName}`;
+  }
+  fetch(fetchAddress)
+    .then(response => response.json())
+    .then(responseJson => 
+      displayResults(responseJson))
+    .catch(error => alert('Something went wrong. Try again later.'));
+}
+
+
+
+function renderList(responseMessage){
+  const n = responseMessage.length;
+  const subgroupNumber = ~~(n/2) + n%2;
+  for(let i = 0; i < n; i++ ){
+    if (i%2 === 0){
+      $('.result-group').append(`<div class="subgroup_${~~(i/2)+1} group"></div>`);
+    }
+    $(`.subgroup_${~~(i/2)+1}`).append(`<div class="item_${i+1} item"></div>`)
+    $(`.item_${i+1}`).html(`<img src='${responseMessage[i]}' alt='${i+1}'>`)
+  }
+  // $('.result-group').html(`<div class="subgroup group"></div>`.repeat(subgroupNumber));
+  // let i = 0, j = 0;
+  // while (i < n & j < subgroupNumber);
+}
+
+function displayResults(responseJson) {
+  renderList(responseJson.message)
+  //replace the existing image with the new one
+  // $('.item-2').find('img').attr('src',`${responseJson.message}`);
+  // $('.results-img').replaceWith(
+  //   `<img src="${responseJson.message}" class="results-img">`
+  // )
+  //display the results section
+  // $('.results').removeClass('hidden');
+}
+
+function watchForm() {
+  $('button').on('click', event => {
+    event.preventDefault();
+    $('.result-group').html('');
+    const newItemName = $('input').val();
+    console.log(newItemName);
+    $('input').val('');
+    getDogImage(newItemName);
+  });
+}
+
+$(function() {
+  console.log('App loaded! Waiting for submit!');
+  watchForm();
+});
