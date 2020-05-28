@@ -2,21 +2,21 @@
 .group{
     display: flex;
     flex-direction: column;
-    
+    justify-content: center;
+    align-items: center;
 }
 
 .item{
-    width: 40%;
-    /* width: 400px;
-    height: 300px; */
+    width: 400px;
+    height:300px;
 }
 
 /*-------- desktop setting ---------*/
-@media only screen and (min-width: 720px) {
+@media only screen and (min-width: 800px) {
     .group{
         flex-direction: row;    
-        align-items: center;
-        justify-content: center;
+        /* align-items: center;
+        justify-content: center; */
     }
 }
 
