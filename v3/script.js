@@ -59,14 +59,14 @@ function watchForm() {
     if (!newBreedName){
       newBreedName = 'akita';
     }
-    // reset result-group section, clear all images
-    // $('.result-group').html('');
 
     // if the input value is invalid, show an alert
     if (!checkInput(newNumber)){
       alert('Please input a number between 1 and 50');
       return
     }
+    // reset result-group section, clear all images
+    $('.result-group').html('');
     // clear input value
     // $('.js-random-dog-entry').val('');
     getDogImage(newNumber, newBreedName);
