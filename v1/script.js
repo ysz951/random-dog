@@ -43,9 +43,9 @@ function watchForm() {
     event.preventDefault();
     // reset result-group section, clear all images
     $('.result-group').html('');
-    const newItemName = $('input').val();
+    const newItemName = $('.js-random-dog-entry').val();
     // clear input value
-    $('input').val('');
+    // $('.js-random-dog-entry').val('');
     getDogImage(newItemName);
   });
 }

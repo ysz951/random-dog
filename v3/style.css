@@ -52,6 +52,12 @@ p{
     margin-left:10px;
     width: 80%;
 }
+.js-breed-entry{
+    display:block;
+    height: 30px;
+    margin-left:10px;
+    width: 80%;
+}
 
 ::-webkit-input-placeholder {  /* Chrome/Opera/Safari */
     white-space:pre-line;  
@@ -100,6 +106,10 @@ img{
 @media only screen and (min-width: 450px) {
     /* -------input setting ------*/
     .js-random-dog-entry{
+        width: 140px;
+        height: initial;
+    }
+    .js-breed-entry{
         width: 140px;
         height: initial;
     }

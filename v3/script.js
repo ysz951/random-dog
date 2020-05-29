@@ -1,8 +1,8 @@
 'use strict';
 
 // check the input value
-function checkInput(newItemName){
-  if ((isNaN(newItemName)  || newItemName < 1 || newItemName > 50) && (newItemName.length !== 0)){
+function checkInput(newNumber){
+  if (isNaN(newNumber)  || newNumber < 1 || newNumber > 50 ){
     return false
   }
   else{
@@ -10,16 +10,10 @@ function checkInput(newItemName){
   }
 }
 
-function getDogImage(newItemName) {
+function getDogImage(newNumber, newBreedName) {
   
-  let fetchAddress;
-  if (!newItemName){
-    // default input value is 3
-    fetchAddress = 'https://dog.ceo/api/breeds/image/random/3';
-  }
-  else{
-    fetchAddress = `https://dog.ceo/api/breeds/image/random/${newItemName}`;
-  }
+  const fetchAddress = `https://dog.ceo/api/breed/${newBreedName}/images/random/${newNumber}`;
+  console.log(fetchAddress)
   // fetch message from dog api
   fetch(fetchAddress)
     .then(response => response.json())
@@ -45,6 +39,10 @@ function renderList(responseMessage){
 function displayResults(responseJson) {
   // show the responseJon in console
   console.log(responseJson)
+  if (responseJson.status === 'error'){
+    alert('Please input a valid breed, like "African"');
+    return
+  }
   renderList(responseJson.message)
 }
 
@@ -52,17 +50,25 @@ function displayResults(responseJson) {
 function watchForm() {
   $('button').on('click', event => {
     event.preventDefault();
-    const newItemName = $('.js-random-dog-entry').val();
+    let newNumber = $('.js-random-dog-entry').val();
+    let newBreedName = $('.js-breed-entry').val().toLowerCase();
+    if (!newNumber){
+      newNumber = 3;
+    }
+    if (!newBreedName){
+      newBreedName = 'akita';
+    }
+    // reset result-group section, clear all images
+    // $('.result-group').html('');
+
     // if the input value is invalid, show an alert
-    if (!checkInput(newItemName)){
+    if (!checkInput(newNumber)){
       alert('Please input a number between 1 and 50');
       return
     }
-    // reset result-group section, clear all images
-    $('.result-group').html('');
     // clear input value
     // $('.js-random-dog-entry').val('');
-    getDogImage(newItemName);
+    getDogImage(newNumber, newBreedName);
   });
 }
 
