@@ -34,7 +34,7 @@ function getDogImage(newItemName) {
 
 function displayResults(responseJson) {
   // show the responseJon in console
-  console.log(responseJson)
+  console.log(responseJson);
 }
 
 // inspect form action

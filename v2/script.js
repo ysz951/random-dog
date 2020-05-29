@@ -37,15 +37,15 @@ function renderList(responseMessage){
     if (i%2 === 0){
       $('.result-group').append(`<div class="subgroup_${~~(i/2)+1} group"></div>`);
     }
-    $(`.subgroup_${~~(i/2)+1}`).append(`<div class="item_${i+1} item"></div>`)
-    $(`.item_${i+1}`).html(`<img src='${responseMessage[i]}' alt='No.${i+1}'>`)
+    $(`.subgroup_${~~(i/2)+1}`).append(`<div class="item_${i+1} item"></div>`);
+    $(`.item_${i+1}`).html(`<img src='${responseMessage[i]}' alt='No.${i+1}'>`);
   }
 }
 
 function displayResults(responseJson) {
   // show the responseJon in console
-  console.log(responseJson)
-  renderList(responseJson.message)
+  console.log(responseJson);
+  renderList(responseJson.message);
 }
 
 // inspect form action
