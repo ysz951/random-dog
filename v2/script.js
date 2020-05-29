@@ -11,11 +11,7 @@ function checkInput(newItemName){
 }
 
 function getDogImage(newItemName) {
-  // if the input value is invalid, show an alert
-  if (!checkInput(newItemName)){
-    alert('Please input a number between 1 and 50');
-    return
-  }
+  
   let fetchAddress;
   if (!newItemName){
     // default input value is 3
@@ -36,13 +32,13 @@ function getDogImage(newItemName) {
 
 function renderList(responseMessage){
   const n = responseMessage.length;
-  const subgroupNumber = ~~(n/2) + n%2;
   for(let i = 0; i < n; i++ ){
+    // every two images are in the same subgroup
     if (i%2 === 0){
       $('.result-group').append(`<div class="subgroup_${~~(i/2)+1} group"></div>`);
     }
     $(`.subgroup_${~~(i/2)+1}`).append(`<div class="item_${i+1} item"></div>`)
-    $(`.item_${i+1}`).html(`<img src='${responseMessage[i]}' alt='${i+1}'>`)
+    $(`.item_${i+1}`).html(`<img src='${responseMessage[i]}' alt='No.${i+1}'>`)
   }
 }
 
@@ -56,9 +52,14 @@ function displayResults(responseJson) {
 function watchForm() {
   $('button').on('click', event => {
     event.preventDefault();
+    const newItemName = $('input').val();
+    // if the input value is invalid, show an alert
+    if (!checkInput(newItemName)){
+      alert('Please input a number between 1 and 50');
+      return
+    }
     // reset result-group section, clear all images
     $('.result-group').html('');
-    const newItemName = $('input').val();
     // clear input value
     $('input').val('');
     getDogImage(newItemName);
