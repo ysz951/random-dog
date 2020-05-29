@@ -15,7 +15,7 @@ header h1{
     margin: 0;
 }
 
-/*------- main quiz section--------- */
+/*------- main form section--------- */
 form{
     margin:20px;
 }
@@ -29,30 +29,12 @@ form{
 }
 
 
-img{
-    width: 400px;
-    height:300px;
-}
-
 /* ---------headding setting---------- */
 label{
     word-wrap: break-word;
     display:block;
     padding:10px;
 }
-
-input{
-    display:block;
-    height: 30px;
-    margin-left:10px;
-    width: 80%;
-}
-
-::-webkit-input-placeholder {
-    white-space:pre-line;  
-    position:relative;
-    top:-7px;
-  }
 
 button{
     margin:10px;
@@ -63,8 +45,41 @@ p{
     flex-wrap: wrap;
 }
 
-h3{
-    margin-top: 0;
+ /* --input setting--- */
+ input{
+    display:block;
+    height: 30px;
+    margin-left:10px;
+    width: 80%;
+}
+
+::-webkit-input-placeholder {  /* Chrome/Opera/Safari */
+    white-space:pre-line;  
+    position:relative;
+    top:-8px;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+    white-space:pre-line;  
+    position:relative;
+    top:-8px;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    white-space:pre-line;  
+    position:relative;
+    top:-8px;
+}
+:-moz-placeholder { /* Firefox 18- */
+    white-space:pre-line;  
+    position:relative;
+    top:-8px;
+}
+
+/* -------image setting ----------*/
+
+img{
+    width: 400px;
+    height:300px;
 }
 
 /* ---------all hidden classes setting-------- */
@@ -83,7 +98,7 @@ h3{
 
 /* ------------desktop -----------*/
 @media only screen and (min-width: 430px) {
-    /* -------position setting ------*/
+    /* -------input setting ------*/
     input{
         width: 140px;
         height: initial;
@@ -93,5 +108,20 @@ h3{
         white-space:initial;  
         position:initial;
         top:initial;
-      }
+    }
+    ::-moz-placeholder { /* Firefox 19+ */
+        white-space:initial;  
+        position:initial;
+        top:initial;
+   }
+   :-ms-input-placeholder { /* IE 10+ */
+        white-space:initial;  
+        position:initial;
+        top:initial;
+   }
+   :-moz-placeholder { /* Firefox 18- */
+        white-space:initial;  
+        position:initial;
+        top:initial;
+   }
 }
